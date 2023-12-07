@@ -1,4 +1,5 @@
-import 'package:chat_app_firebase/view/login.dart';
+
+import 'package:chat_app_firebase/authentication/login_or_register.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: LoginOrRegister(),
     );
   }
 }

@@ -2,17 +2,19 @@ import 'package:chat_app_firebase/widgets/button.dart';
 import 'package:chat_app_firebase/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final Function()? onTap;
-  const LoginPage({super.key, this.onTap});
+  const RegisterPage({super.key, this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 50,
                 ),
-                Text("Welcome back,You've been missed!",
+                Text("Lets create an account for you",
                     style: TextStyle(
                       color: Colors.grey.shade700,
                     )),
@@ -50,16 +52,23 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: 'Password',
                     obcureText: true),
                 const SizedBox(
+                  height: 10,
+                ),
+                TextFieldWidget(
+                    controller: confirmPasswordController,
+                    hintText: 'Confirm Password',
+                    obcureText: true),
+                const SizedBox(
                   height: 20,
                 ),
-                ButtonWidget(onTap: () {}, text: 'Sign In'),
+                ButtonWidget(onTap: () {}, text: 'Sign Up'),
                 const SizedBox(
                   height: 25,
                 ),
                 Row(
                   children: [
                     Text(
-                      "Not a member?",
+                      "Already have an account?",
                       style: TextStyle(color: Colors.grey.shade700),
                     ),
                     const SizedBox(
@@ -68,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
-                        "Register Now",
+                        "Login now",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.blue,

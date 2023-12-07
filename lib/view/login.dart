@@ -1,5 +1,6 @@
 import 'package:chat_app_firebase/widgets/button.dart';
 import 'package:chat_app_firebase/widgets/textfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,6 +14,13 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
+
+  void signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailTextController.text, 
+        password: passwordTextController.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +60,8 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                ButtonWidget(onTap: () {}, text: 'Sign In'),
+                ButtonWidget(onTap: signIn,
+                 text: 'Sign In'),
                 const SizedBox(
                   height: 25,
                 ),

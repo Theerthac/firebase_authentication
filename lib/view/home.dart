@@ -28,6 +28,9 @@ class _HomePageState extends State<HomePage> {
         'TimeStamp': Timestamp.now(),
       });
     }
+    setState(() {
+      textController.clear();
+    });
   }
 
   @override
@@ -86,7 +89,13 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          Text("Logged in as: " + currentUser.email!),
+          Text(
+            "Logged in as: " + currentUser.email!,
+            style: TextStyle(color: Colors.grey),
+          ),
+          SizedBox(
+            height: 50,
+          )
         ],
       ),
     );

@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
           password: passwordTextController.text);
        if (context.mounted) Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
       displayMessage(e.code);
     }

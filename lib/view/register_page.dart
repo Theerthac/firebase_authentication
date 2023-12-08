@@ -37,6 +37,7 @@ class _RegisterPageState extends State<RegisterPage> {
           password: passwordTextController.text);
       if (context.mounted) Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
       displayMessage(e.code);
     }

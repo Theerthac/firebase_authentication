@@ -25,7 +25,7 @@ class ChatPost extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: const Icon(Icons.person,color: Colors.white,),
           ),
-          SizedBox(width: 20,),
+          const SizedBox(width: 20,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
